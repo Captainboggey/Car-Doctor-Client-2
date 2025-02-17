@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRouter from "./PrivateRouter";
+import MyBookings from "../Pages/MyBookings/MyBookings";
 
 const router = createBrowserRouter([{
     path:"/",
@@ -23,6 +24,9 @@ const router = createBrowserRouter([{
         path: "/checkout/:id",
         element:<PrivateRouter><CheckOut></CheckOut></PrivateRouter>,
         loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+    },{
+        path: "/bookings",
+        element:<PrivateRouter><MyBookings></MyBookings></PrivateRouter>
     }]
 }])
 

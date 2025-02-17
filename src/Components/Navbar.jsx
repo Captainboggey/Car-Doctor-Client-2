@@ -13,7 +13,15 @@ const Navbar = () => {
     const navLinks = <>
     <Link to={'/'}><li><h2>Home</h2></li></Link>
     {
-        user?<li onClick={handleLogOut}><h2>Logout</h2></li>:<Link to={'/login'}><li><h2>Login</h2></li></Link>
+        user?.email?
+        <>
+        <li onClick={handleLogOut}><h2>Logout</h2> </li>
+        <Link to={'/bookings'}><li ><h2>My Bookings</h2></li></Link>
+        </>
+        
+        :
+        
+        <Link to={'/login'}><li><h2>Login</h2></li></Link>
     }
     </>
     return (
